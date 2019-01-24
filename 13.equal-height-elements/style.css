@@ -1,0 +1,69 @@
+/* Some CSS Setup - nothing to do with flexbox */
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background-image: linear-gradient(260deg, #2376ae 0%, #c16ecf 100%);
+}
+
+a {
+  color:white;
+}
+
+.item.large {
+  font-size: 40px;
+}
+
+.item.small {
+  font-size: 20px;
+}
+
+/* 3. the margin is here */
+.item {
+  background:rgba(255,255,255,0.2);
+  margin:10px;
+  padding:20px;
+  font-size: 30px;
+}
+
+/* Flexbox Starts Here: */
+/* this is our flex container! */
+/* 1. by default they flex in a row
+  and do not wrap */
+/* the width is currently determined by the longest
+  word "Arkansas" */
+.elements {
+  display: flex;
+  /* 2. now depending on how large the flex-item is
+    depends on if you get one or two lines before
+    the start of the next row */
+  /* resize the window to see it change */
+  flex-wrap: wrap;
+
+  /* 4. if you don't like that the last two items
+    are an awkward size you can use: */
+  /* it's a container flex-box command */
+  justify-content: center;
+}
+
+.item {
+  /* remember: flex-grow, flex-shrink, flex-basis */
+  /* 3. the margin is set to 10px */
+  /* flex: 1 1 33.333%; */
+  /* therefore, the above code doesn't work because
+    we are over 100% so, use: */
+  /* and delete the margin from both sides */
+  flex: 1 1 calc(33.33% - 20px);
+
+  /* 4. you would use this to make the 
+  justify-content work: */
+  /* flex: 0 1 calc(33.33% - 20px); */
+}
+

@@ -1,0 +1,99 @@
+/* Some CSS Setup - nothing to do with flexbox */
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background-image: linear-gradient(260deg, #2376ae 0%, #c16ecf 100%);
+}
+
+a {
+  color:white;
+}
+
+.plan ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.plan ul li {
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding:10px;
+}
+
+.plan ul li:last-child {
+  border-bottom: 0;
+}
+
+.plan a {
+  text-decoration: none;
+  background:#FEFF00;
+  padding:10px;
+  color:black;
+  border-radius:4px;
+}
+
+
+.plan h2 {
+  text-transform: uppercase;
+  color:white;
+  letter-spacing: 2px;
+  text-shadow:3px 3px 0 rgba(0,0,0,0.1);
+}
+
+.price {
+  font-size: 50px;
+  font-family: serif;
+  margin: 10px 0;
+}
+
+/* Flex-Container */
+.pricing-grid {
+  max-width:750px;
+  margin: 0 auto;
+  /* 1. turns it into a flex-container */
+  display: flex;
+
+  /* LAST: you can turn this on or off to see
+    the other option we created */
+  align-items: center;
+  /* border: 1px solid red; */
+  
+}
+
+/* Flex-Item */
+.plan {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 20px;
+  padding: 20px;
+  border-radius: 4px;
+  /* border: 1px solid pink; */
+
+  flex: 1;
+  /* we have to make it a flex-container */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* all direct descendents of .plan */
+/* since we nested a flex-container we have
+  to setup the flex-items */
+.plan > * {
+  /* you gotta set flex-grow, shrink and basis
+    to 1 1 100% or it'll be all broken */
+  flex: 1 1 100%;
+}
+
+/* to keep the call to action buttons
+    on the bottom */
+.plan .cta {
+  align-self: flex-end;
+}

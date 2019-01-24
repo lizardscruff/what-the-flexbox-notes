@@ -1,0 +1,104 @@
+/* Some CSS Setup - nothing to do with flexbox */
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background-image: linear-gradient(260deg, #2376ae 0%, #c16ecf 100%);
+}
+
+.wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding:50px;
+}
+
+img {
+  max-width:100%;
+}
+
+a {
+  color:white;
+  text-decoration: none;
+  font-size: 15px;
+  background:rgba(0,0,0,0.2);
+  padding:20px 5px;
+}
+a:hover {
+  background:rgba(0,0,0,0.4);
+}
+
+/* our flex container */
+.slider-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  /* this makes the ul set to flex */
+  display: flex;
+  /* 7. look up how to align items vertically on css-tricks */
+  /* hmm.. this isn't quite what we want */
+  /* align-items: center; */
+
+  /* 8. I want it to center and the darkened part to stretch  */
+  /* but I can't do both at the same time */
+  /* align-items: stretch; */
+}
+
+/* our first flex item */
+.slider-nav li {
+  /* 1. divide the space evenly */
+  /* flex: 1; */
+
+  /* 5. make all the other boxes take up more space than the arrows */
+  flex: 2; /* this is kind of a flex item */
+
+  /* 2. the layout is jacked up */
+  /* let's see what's happening by adding a border */
+  /* border: 1px solid red; */
+
+  /* 6. this aligns the text horizontally */
+  text-align: center;
+
+  /* Here's the magic trick: */
+  /* 9. we nest a flex container inside our flex item */
+  display: flex; /* this is kind of a flex container */
+}
+
+.slider-nav a {
+  /* 3. this makes the slider anchor tags more viewable */
+  /* display: block;
+  width: 100%; */
+
+  /* 10. we can now remove the above temporary fix and make it: */
+  flex-basis: 100%;
+
+  /* 11. we still want to stretch as well as center */
+  display: flex;
+
+  /* 13. now they align vertically */
+  align-items: center;
+}
+
+.slider-nav .arrow {
+  /* 4. select the arrow and make the space smallest */
+  flex: 1;
+}
+
+/* 12. this is our flex item */
+.slider-nav span {
+  /* 14. this insures they occupy their own space 100% */
+  display: block;
+  width: 100%;
+}
+
+/* 15. now you can crank up the font-size and it won't mess 
+      with your centering. */
+.arrow a {
+  font-size: 30px;
+}
